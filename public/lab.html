@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Lab — Faultline</title>
+<meta name="viewport" content="width=1024" />
+<link rel="stylesheet" href="/css/style.css" />
+<script>
+  (function(){
+    var m = localStorage.getItem('whl_theme_v1') || 'dark';
+    var effective = m === 'system' ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : m;
+    document.documentElement.setAttribute('data-theme', effective);
+  })();
+</script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">FAULT<span class="brk">://</span>LINE <span class="sub">break it to understand it</span></div>
+    <nav class="nav">
+      <a href="/index.html">Labs</a>
+      <div class="appearance-toggle" id="appearanceToggle">
+        <button data-mode="dark" title="Dark">🌙</button>
+        <button data-mode="light" title="Light">☀️</button>
+        <button data-mode="system" title="Match system">🖥</button>
+      </div>
+      <div class="difficulty-toggle" id="difficultyToggle">
+        <button data-level="easy">Easy</button>
+        <button data-level="medium">Medium</button>
+        <button data-level="hard">Hard</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="lab-shell" id="labShell">Loading…</div>
+
+  <div id="toastRoot"></div>
+
+  <script src="/js/labs-data.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/lab.js"></script>
+</body>
+</html>

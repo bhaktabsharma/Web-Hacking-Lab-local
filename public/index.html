@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Faultline — Practice Labs</title>
+<meta name="viewport" content="width=1024" />
+<link rel="stylesheet" href="/css/style.css" />
+<script>
+  (function(){
+    var m = localStorage.getItem('whl_theme_v1') || 'dark';
+    var effective = m === 'system' ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : m;
+    document.documentElement.setAttribute('data-theme', effective);
+  })();
+</script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">FAULT<span class="brk">://</span>LINE <span class="sub">break it to understand it</span></div>
+    <nav class="nav">
+      <a href="/index.html">Labs</a>
+      <div class="appearance-toggle" id="appearanceToggle">
+        <button data-mode="dark" title="Dark">🌙</button>
+        <button data-mode="light" title="Light">☀️</button>
+        <button data-mode="system" title="Match system">🖥</button>
+      </div>
+      <div class="difficulty-toggle" id="difficultyToggle">
+        <button data-level="easy">Easy</button>
+        <button data-level="medium">Medium</button>
+        <button data-level="hard">Hard</button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Find the <span class="accent-word">fault line</span>.</h1>
+    <p>31 hands-on vulnerability labs — real sandboxed targets, one exploit at a time.</p>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="🔍 Search labs — try 'xss', 'injection', 'cookie'..." />
+    </div>
+  </section>
+
+  <div class="filters" id="filters"></div>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-dots" id="progressDots"></div>
+    <div class="progress-label">
+      <span id="progressText">0 / 31 labs solved</span>
+      <button class="reset-link" id="resetBtn">reset all progress</button>
+    </div>
+  </div>
+
+  <div class="grid" id="labGrid"></div>
+
+  <footer class="foot">Faultline · Training sandbox · Not for production use</footer>
+
+  <script src="/js/labs-data.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
