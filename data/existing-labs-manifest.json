@@ -1,0 +1,2491 @@
+{
+  "generatedAt": "2026-08-31T11:28:29.259Z",
+  "schemaNote": "Adapted from upgrade-spec Section 4: 'difficulty' is a 'difficulties' array because one lab entry serves multiple tiers via a shared route, not one row per tier.",
+  "totalLabs": 89,
+  "totalCategories": 11,
+  "categories": [
+    {
+      "id": "injection",
+      "label": "Injection"
+    },
+    {
+      "id": "server-logic",
+      "label": "Server Logic"
+    },
+    {
+      "id": "client-side",
+      "label": "Client-Side"
+    },
+    {
+      "id": "auth",
+      "label": "Authentication"
+    },
+    {
+      "id": "authz",
+      "label": "Authorization"
+    },
+    {
+      "id": "infra",
+      "label": "Infrastructure"
+    },
+    {
+      "id": "enum",
+      "label": "Web Enumeration"
+    },
+    {
+      "id": "api",
+      "label": "API Security"
+    },
+    {
+      "id": "business-logic",
+      "label": "Business Logic"
+    },
+    {
+      "id": "chains",
+      "label": "Attack Chains"
+    },
+    {
+      "id": "final",
+      "label": "Final Challenge"
+    }
+  ],
+  "labs": [
+    {
+      "id": "idor",
+      "slug": "idor",
+      "category": "authz",
+      "title": "Insecure Direct Object Reference",
+      "demoApp": "SecureCorp Portal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard",
+        "expert"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/idor"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/idor/profile"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/idor/export"
+        }
+      ],
+      "primaryRoute": "/vuln/idor",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-authz.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "access-control",
+      "slug": "access-control",
+      "category": "authz",
+      "title": "Client-Side Access Controls",
+      "demoApp": "SecureCorp Notes",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/access-control"
+        }
+      ],
+      "primaryRoute": "/vuln/access-control",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-authz.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "info-disclosure",
+      "slug": "info-disclosure",
+      "category": "authz",
+      "title": "Information Disclosure",
+      "demoApp": "SecureCorp Checkout",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/info-disclosure"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/info-disclosure/.git-config"
+        }
+      ],
+      "primaryRoute": "/vuln/info-disclosure",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "vertical-privesc",
+      "slug": "vertical-privesc",
+      "category": "authz",
+      "title": "Vertical Privilege Escalation",
+      "demoApp": "SecureCorp Profile Settings",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/vertical-privesc"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/vertical-privesc/update"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/vertical-privesc/bulk-update"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/vertical-privesc/admin"
+        }
+      ],
+      "primaryRoute": "/vuln/vertical-privesc",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-authz.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "multi-tenant-isolation",
+      "slug": "multi-tenant-isolation",
+      "category": "authz",
+      "title": "Multi-Tenant Isolation Bypass",
+      "demoApp": "SecureCorp Admin Console",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/multi-tenant-isolation"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/multi-tenant-isolation/api"
+        }
+      ],
+      "primaryRoute": "/vuln/multi-tenant-isolation",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-authz.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "xss",
+      "slug": "xss",
+      "category": "client-side",
+      "title": "Cross-Site Scripting",
+      "demoApp": "SecureCorp Notes Search",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/xss"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/xss/search"
+        }
+      ],
+      "primaryRoute": "/vuln/xss",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "csrf",
+      "slug": "csrf",
+      "category": "client-side",
+      "title": "Cross-Site Request Forgery",
+      "demoApp": "SecureCorp Account",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/csrf"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/csrf/account"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/csrf/delete"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/csrf/poc"
+        }
+      ],
+      "primaryRoute": "/vuln/csrf",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "open-redirect",
+      "slug": "open-redirect",
+      "category": "client-side",
+      "title": "Open Redirect",
+      "demoApp": "SecureCorp SSO",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/open-redirect"
+        }
+      ],
+      "primaryRoute": "/vuln/open-redirect",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "cstl",
+      "slug": "cstl",
+      "category": "client-side",
+      "title": "Client-Side Template Injection",
+      "demoApp": "SecureCorp Comment Preview",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/cstl"
+        }
+      ],
+      "primaryRoute": "/vuln/cstl",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "postmessage",
+      "slug": "postmessage",
+      "category": "client-side",
+      "title": "postMessage Vulnerabilities",
+      "demoApp": "SecureCorp Wallet",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/postmessage"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/postmessage/attacker"
+        }
+      ],
+      "primaryRoute": "/vuln/postmessage",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "prototype-pollution",
+      "slug": "prototype-pollution",
+      "category": "client-side",
+      "title": "Prototype Pollution",
+      "demoApp": "SecureCorp Theme Customizer",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/prototype-pollution"
+        }
+      ],
+      "primaryRoute": "/vuln/prototype-pollution",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "secondary-context",
+      "slug": "secondary-context",
+      "category": "server-logic",
+      "title": "Secondary Context Vulnerabilities",
+      "demoApp": "SecureCorp Support",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/secondary-context"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/secondary-context/admin"
+        }
+      ],
+      "primaryRoute": "/vuln/secondary-context",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "sql-injection",
+      "slug": "sql-injection",
+      "category": "injection",
+      "title": "SQL Injection",
+      "demoApp": "SecureCorp Employee Directory",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard",
+        "expert"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/sql-injection"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/sql-injection/submit-note"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/sql-injection/audit-log"
+        }
+      ],
+      "primaryRoute": "/vuln/sql-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "command-injection",
+      "slug": "command-injection",
+      "category": "injection",
+      "title": "Command Injection",
+      "demoApp": "SecureCorp Network Diagnostics",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/command-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/command-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "ssti",
+      "slug": "ssti",
+      "category": "injection",
+      "title": "Server-Side Template Injection",
+      "demoApp": "SecureCorp Greeting Card Generator",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/ssti"
+        }
+      ],
+      "primaryRoute": "/vuln/ssti",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "xxe",
+      "slug": "xxe",
+      "category": "injection",
+      "title": "XML External Entity",
+      "demoApp": "SecureCorp Feedback Importer",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard",
+        "expert"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/xxe"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/xxe/collab-log"
+        }
+      ],
+      "primaryRoute": "/vuln/xxe",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "crlf-injection",
+      "slug": "crlf-injection",
+      "category": "injection",
+      "title": "CRLF Injection",
+      "demoApp": "SecureCorp Newsletter",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/crlf-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/crlf-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "nosql-injection",
+      "slug": "nosql-injection",
+      "category": "injection",
+      "title": "NoSQL Injection",
+      "demoApp": "SecureCorp API Login",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/nosql-injection"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/nosql-injection/login"
+        }
+      ],
+      "primaryRoute": "/vuln/nosql-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "ldap-injection",
+      "slug": "ldap-injection",
+      "category": "injection",
+      "title": "LDAP Injection",
+      "demoApp": "SecureCorp Employee Directory (LDAP)",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/ldap-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/ldap-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "http-param-pollution",
+      "slug": "http-param-pollution",
+      "category": "injection",
+      "title": "HTTP Parameter Pollution",
+      "demoApp": "SecureCorp Orders",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/http-param-pollution"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/http-param-pollution/apply"
+        }
+      ],
+      "primaryRoute": "/vuln/http-param-pollution",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "host-header-injection",
+      "slug": "host-header-injection",
+      "category": "injection",
+      "title": "Host Header Injection",
+      "demoApp": "SecureCorp Password Reset Mailer",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/host-header-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/host-header-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "ssrf",
+      "slug": "ssrf",
+      "category": "server-logic",
+      "title": "Server-Side Request Forgery",
+      "demoApp": "SecureCorp Health Check Tool",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard",
+        "expert"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/ssrf"
+        }
+      ],
+      "primaryRoute": "/vuln/ssrf",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "file-upload",
+      "slug": "file-upload",
+      "category": "server-logic",
+      "title": "Insecure File Upload",
+      "demoApp": "SecureCorp Profile Picture Upload",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/file-upload"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/file-upload"
+        }
+      ],
+      "primaryRoute": "/vuln/file-upload",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "path-traversal",
+      "slug": "path-traversal",
+      "category": "server-logic",
+      "title": "Path Traversal",
+      "demoApp": "SecureCorp Document Viewer",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/path-traversal"
+        }
+      ],
+      "primaryRoute": "/vuln/path-traversal",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "lfi",
+      "slug": "lfi",
+      "category": "server-logic",
+      "title": "Local File Inclusion",
+      "demoApp": "SecureCorp Multilingual Loader",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/lfi"
+        }
+      ],
+      "primaryRoute": "/vuln/lfi",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "cache-poisoning",
+      "slug": "cache-poisoning",
+      "category": "server-logic",
+      "title": "Web Cache Poisoning",
+      "demoApp": "SecureCorp Homepage",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/cache-poisoning"
+        }
+      ],
+      "primaryRoute": "/vuln/cache-poisoning",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "cache-deception",
+      "slug": "cache-deception",
+      "category": "server-logic",
+      "title": "Web Cache Deception",
+      "demoApp": "SecureCorp My Account",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/cache-deception"
+        }
+      ],
+      "primaryRoute": "/vuln/cache-deception",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "request-smuggling",
+      "slug": "request-smuggling",
+      "category": "server-logic",
+      "title": "HTTP Request Smuggling",
+      "demoApp": "SecureCorp Protocol Analyzer",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/request-smuggling"
+        }
+      ],
+      "primaryRoute": "/vuln/request-smuggling",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "race-conditions",
+      "slug": "race-conditions",
+      "category": "server-logic",
+      "title": "Race Conditions",
+      "demoApp": "SecureCorp Gift Card",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/race-conditions"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/race-conditions/redeem"
+        }
+      ],
+      "primaryRoute": "/vuln/race-conditions",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "2fa-bypass",
+      "slug": "2fa-bypass",
+      "category": "auth",
+      "title": "2FA Bypass",
+      "demoApp": "SecureCorp Login",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/2fa-bypass"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/2fa-bypass/login"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/2fa-bypass/verify"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/2fa-bypass/account"
+        }
+      ],
+      "primaryRoute": "/vuln/2fa-bypass",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "weak-password",
+      "slug": "weak-password",
+      "category": "auth",
+      "title": "Weak Password Checks",
+      "demoApp": "SecureCorp Login",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/weak-password"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/weak-password/register"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/weak-password/login"
+        }
+      ],
+      "primaryRoute": "/vuln/weak-password",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "brute-force",
+      "slug": "brute-force",
+      "category": "auth",
+      "title": "Brute Force Attack",
+      "demoApp": "SecureCorp Staff Portal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/brute-force"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/brute-force/login"
+        }
+      ],
+      "primaryRoute": "/vuln/brute-force",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "password-reset",
+      "slug": "password-reset",
+      "category": "auth",
+      "title": "Password Reset Issues",
+      "demoApp": "SecureCorp Password Reset",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/password-reset"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/password-reset/request"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/password-reset/reset-form"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/password-reset/reset"
+        }
+      ],
+      "primaryRoute": "/vuln/password-reset",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "oauth-misconfig",
+      "slug": "oauth-misconfig",
+      "category": "auth",
+      "title": "OAuth Misconfiguration",
+      "demoApp": "SecureCorp ID — OAuth",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/oauth-misconfig"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/oauth-misconfig/authorize"
+        }
+      ],
+      "primaryRoute": "/vuln/oauth-misconfig",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "saml-vulns",
+      "slug": "saml-vulns",
+      "category": "auth",
+      "title": "SAML Vulnerabilities",
+      "demoApp": "SecureCorp SSO — SAML",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/saml-vulns"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/saml-vulns/login"
+        }
+      ],
+      "primaryRoute": "/vuln/saml-vulns",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "session-fixation",
+      "slug": "session-fixation",
+      "category": "auth",
+      "title": "Session Fixation",
+      "demoApp": "SecureCorp Customer Portal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/session-fixation"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/session-fixation/login"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/session-fixation/check"
+        }
+      ],
+      "primaryRoute": "/vuln/session-fixation",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "jwt-vulnerabilities",
+      "slug": "jwt-vulnerabilities",
+      "category": "auth",
+      "title": "JWT Vulnerabilities",
+      "demoApp": "SecureCorp API — JWT Auth",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard",
+        "expert"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/jwt-vulnerabilities"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/jwt-vulnerabilities/admin"
+        }
+      ],
+      "primaryRoute": "/vuln/jwt-vulnerabilities",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "cloud-storage-misconfig",
+      "slug": "cloud-storage-misconfig",
+      "category": "infra",
+      "title": "Cloud Storage Misconfiguration",
+      "demoApp": "SecureCorp Cloud Storage",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/cloud-storage-misconfig"
+        }
+      ],
+      "primaryRoute": "/vuln/cloud-storage-misconfig",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "subdomain-takeover",
+      "slug": "subdomain-takeover",
+      "category": "infra",
+      "title": "Subdomain Takeover",
+      "demoApp": "SecureCorp DNS Zone Lookup",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/subdomain-takeover"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/subdomain-takeover/claim"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/subdomain-takeover/preview"
+        }
+      ],
+      "primaryRoute": "/vuln/subdomain-takeover",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "source-map-leak",
+      "slug": "source-map-leak",
+      "category": "infra",
+      "title": "Source Map Leakage",
+      "demoApp": "SecureCorp Web App",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/source-map-leak"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/source-map-leak/app.min.js"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/source-map-leak/app.min.js.map"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/source-map-leak/bundle.7f3a9c.js.map"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/source-map-leak/manifest.json"
+        }
+      ],
+      "primaryRoute": "/vuln/source-map-leak",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "exposed-dev-endpoint",
+      "slug": "exposed-dev-endpoint",
+      "category": "infra",
+      "title": "Exposed Dev Endpoint",
+      "demoApp": "SecureCorp API Gateway",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/exposed-dev-endpoint"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/exposed-dev-endpoint/robots.txt"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/exposed-dev-endpoint/debug"
+        }
+      ],
+      "primaryRoute": "/vuln/exposed-dev-endpoint",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "enum-files",
+      "slug": "enum-files",
+      "category": "enum",
+      "title": "Files & Directories",
+      "demoApp": "SecureCorp Web Server",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/enum-files"
+        }
+      ],
+      "primaryRoute": "/vuln/enum-files",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-enum.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "virtual-hosts",
+      "slug": "virtual-hosts",
+      "category": "enum",
+      "title": "Virtual Host Enumeration",
+      "demoApp": "SecureCorp Virtual Host Prober",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/virtual-hosts"
+        }
+      ],
+      "primaryRoute": "/vuln/virtual-hosts",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-enum.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "fuzz-params",
+      "slug": "fuzz-params",
+      "category": "enum",
+      "title": "Fuzzing & HTTP Parameters",
+      "demoApp": "SecureCorp Dashboard",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/fuzz-params"
+        }
+      ],
+      "primaryRoute": "/vuln/fuzz-params",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-enum.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "dns-zone-transfer",
+      "slug": "dns-zone-transfer",
+      "category": "enum",
+      "title": "DNS Zone Transfer",
+      "demoApp": "SecureCorp DNS Zone Transfer Tool",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/dns-zone-transfer"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/dns-zone-transfer/changelog"
+        }
+      ],
+      "primaryRoute": "/vuln/dns-zone-transfer",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-enum.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "final",
+      "slug": "final",
+      "category": "final",
+      "title": "Redacted Final Challenge",
+      "demoApp": "SecureCorp — Classified",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/final"
+        }
+      ],
+      "primaryRoute": "/vuln/final",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-authz.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "html-injection",
+      "slug": "html-injection",
+      "category": "injection",
+      "title": "HTML Injection",
+      "demoApp": "SecureCorp Employee Directory",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/html-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/html-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "mail-header-injection",
+      "slug": "mail-header-injection",
+      "category": "injection",
+      "title": "Mail Header Injection",
+      "demoApp": "SecureCorp Contact Us",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/mail-header-injection"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/mail-header-injection/send"
+        }
+      ],
+      "primaryRoute": "/vuln/mail-header-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "code-injection",
+      "slug": "code-injection",
+      "category": "injection",
+      "title": "Server-Side Code Injection",
+      "demoApp": "SecureCorp Pricing Rule Engine",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/code-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/code-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "blind-command-injection",
+      "slug": "blind-command-injection",
+      "category": "injection",
+      "title": "Blind Command Injection",
+      "demoApp": "SecureCorp Health Monitor",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/blind-command-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/blind-command-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "xpath-injection",
+      "slug": "xpath-injection",
+      "category": "injection",
+      "title": "XPath Injection",
+      "demoApp": "SecureCorp Partner Portal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/xpath-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/xpath-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "blind-sql-injection",
+      "slug": "blind-sql-injection",
+      "category": "injection",
+      "title": "Blind SQL Injection",
+      "demoApp": "SecureCorp Product Lookup",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/blind-sql-injection"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/blind-sql-injection/related"
+        }
+      ],
+      "primaryRoute": "/vuln/blind-sql-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "ssi-injection",
+      "slug": "ssi-injection",
+      "category": "injection",
+      "title": "Server-Side Includes (SSI) Injection",
+      "demoApp": "SecureCorp Email Signature Builder",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/ssi-injection"
+        }
+      ],
+      "primaryRoute": "/vuln/ssi-injection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-injection.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "rfi",
+      "slug": "rfi",
+      "category": "server-logic",
+      "title": "Remote File Inclusion",
+      "demoApp": "SecureCorp Template Importer",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/rfi"
+        }
+      ],
+      "primaryRoute": "/vuln/rfi",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "cors-misconfig",
+      "slug": "cors-misconfig",
+      "category": "server-logic",
+      "title": "CORS Misconfiguration",
+      "demoApp": "SecureCorp API — Account Balance",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/cors-misconfig"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/cors-misconfig/api"
+        }
+      ],
+      "primaryRoute": "/vuln/cors-misconfig",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-serverlogic.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "dom-xss",
+      "slug": "dom-xss",
+      "category": "client-side",
+      "title": "DOM-Based XSS",
+      "demoApp": "SecureCorp Welcome Widget",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/dom-xss"
+        }
+      ],
+      "primaryRoute": "/vuln/dom-xss",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "csp-bypass",
+      "slug": "csp-bypass",
+      "category": "client-side",
+      "title": "Content-Security-Policy Bypass",
+      "demoApp": "SecureCorp Status Page",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/csp-bypass"
+        }
+      ],
+      "primaryRoute": "/vuln/csp-bypass",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "header-xss",
+      "slug": "header-xss",
+      "category": "client-side",
+      "title": "XSS via HTTP Headers",
+      "demoApp": "SecureCorp Admin — Visitor Log",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/header-xss"
+        }
+      ],
+      "primaryRoute": "/vuln/header-xss",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "clickjacking",
+      "slug": "clickjacking",
+      "category": "client-side",
+      "title": "Clickjacking",
+      "demoApp": "SecureCorp Wire Transfer Approval",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/clickjacking"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/clickjacking/poc"
+        }
+      ],
+      "primaryRoute": "/vuln/clickjacking",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "client-side-validation-bypass",
+      "slug": "client-side-validation-bypass",
+      "category": "client-side",
+      "title": "Client-Side Validation Bypass",
+      "demoApp": "SecureCorp Employee Discount Request",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/client-side-validation-bypass"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/client-side-validation-bypass/apply"
+        }
+      ],
+      "primaryRoute": "/vuln/client-side-validation-bypass",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-clientside.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "captcha-bypass",
+      "slug": "captcha-bypass",
+      "category": "auth",
+      "title": "CAPTCHA Bypass",
+      "demoApp": "SecureCorp Staff Login",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/captcha-bypass"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/captcha-bypass/login"
+        }
+      ],
+      "primaryRoute": "/vuln/captcha-bypass",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "insecure-cookie-flags",
+      "slug": "insecure-cookie-flags",
+      "category": "auth",
+      "title": "Insecure Session Cookie Attributes",
+      "demoApp": "SecureCorp Account Session",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/insecure-cookie-flags"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/insecure-cookie-flags/remember-me"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/insecure-cookie-flags/reset-confirm"
+        }
+      ],
+      "primaryRoute": "/vuln/insecure-cookie-flags",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "session-id-in-url",
+      "slug": "session-id-in-url",
+      "category": "auth",
+      "title": "Session ID Exposure in URL",
+      "demoApp": "SecureCorp Legacy Customer Portal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/session-id-in-url"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/session-id-in-url/login"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/session-id-in-url/dashboard"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/session-id-in-url/access-log"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/session-id-in-url/shared-link"
+        }
+      ],
+      "primaryRoute": "/vuln/session-id-in-url",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "weak-session-token",
+      "slug": "weak-session-token",
+      "category": "auth",
+      "title": "Predictable Session Token",
+      "demoApp": "SecureCorp Kiosk Login",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/weak-session-token"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/weak-session-token/login"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/weak-session-token/account"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/weak-session-token/debug-sessions"
+        }
+      ],
+      "primaryRoute": "/vuln/weak-session-token",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "broken-logout",
+      "slug": "broken-logout",
+      "category": "auth",
+      "title": "Broken Logout / Session Invalidation",
+      "demoApp": "SecureCorp Employee Portal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/broken-logout"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/broken-logout/login"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/broken-logout/logout"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/broken-logout/account"
+        }
+      ],
+      "primaryRoute": "/vuln/broken-logout",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-auth.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "web-storage-secrets",
+      "slug": "web-storage-secrets",
+      "category": "infra",
+      "title": "Sensitive Data in HTML5 Web Storage",
+      "demoApp": "SecureCorp Wallet Dashboard",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/web-storage-secrets"
+        }
+      ],
+      "primaryRoute": "/vuln/web-storage-secrets",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "base64-secrets",
+      "slug": "base64-secrets",
+      "category": "infra",
+      "title": "Base64-Encoded Secrets",
+      "demoApp": "SecureCorp Developer Portal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/base64-secrets"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/base64-secrets/submit"
+        }
+      ],
+      "primaryRoute": "/vuln/base64-secrets",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "heartbleed-sim",
+      "slug": "heartbleed-sim",
+      "category": "infra",
+      "title": "Heartbleed (Simulated)",
+      "demoApp": "SecureCorp API Gateway",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/heartbleed-sim"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/heartbleed-sim/beat"
+        }
+      ],
+      "primaryRoute": "/vuln/heartbleed-sim",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "shellshock",
+      "slug": "shellshock",
+      "category": "infra",
+      "title": "Shellshock",
+      "demoApp": "SecureCorp Legacy Diagnostics (CGI)",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/shellshock"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/shellshock/run"
+        }
+      ],
+      "primaryRoute": "/vuln/shellshock",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "drupageddon",
+      "slug": "drupageddon",
+      "category": "infra",
+      "title": "Drupageddon (Known Vulnerable Component)",
+      "demoApp": "SecureCorp Blog (Drupal-Compatible Module)",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/drupageddon"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/drupageddon/comment"
+        }
+      ],
+      "primaryRoute": "/vuln/drupageddon",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "php-cgi-rce",
+      "slug": "php-cgi-rce",
+      "category": "infra",
+      "title": "PHP-CGI Remote Code Execution",
+      "demoApp": "SecureCorp Invoice Generator (PHP-CGI)",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/php-cgi-rce"
+        }
+      ],
+      "primaryRoute": "/vuln/php-cgi-rce",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "xst",
+      "slug": "xst",
+      "category": "infra",
+      "title": "Cross-Site Tracing (XST)",
+      "demoApp": "SecureCorp Legacy Web Server",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/xst"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/xst/simulate-trace"
+        }
+      ],
+      "primaryRoute": "/vuln/xst",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-infra.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "http-verb-tampering",
+      "slug": "http-verb-tampering",
+      "category": "authz",
+      "title": "HTTP Verb Tampering",
+      "demoApp": "SecureCorp Admin Panel",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/http-verb-tampering"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/http-verb-tampering/delete-user"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/http-verb-tampering/delete-user"
+        },
+        {
+          "method": "PUT",
+          "path": "/vuln/http-verb-tampering/delete-user"
+        },
+        {
+          "method": "DELETE",
+          "path": "/vuln/http-verb-tampering/delete-user"
+        }
+      ],
+      "primaryRoute": "/vuln/http-verb-tampering",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-authz.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "graphql-introspection",
+      "slug": "graphql-introspection",
+      "category": "api",
+      "title": "GraphQL Schema Introspection",
+      "demoApp": "SecureCorp API (GraphQL)",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/graphql-introspection"
+        }
+      ],
+      "primaryRoute": "/vuln/graphql-introspection",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-api.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "graphql-authz-bypass",
+      "slug": "graphql-authz-bypass",
+      "category": "api",
+      "title": "GraphQL Object-Level Authorization (BOLA)",
+      "demoApp": "SecureCorp API (GraphQL)",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard",
+        "expert"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/graphql-authz-bypass"
+        }
+      ],
+      "primaryRoute": "/vuln/graphql-authz-bypass",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-api.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "graphql-excessive-exposure",
+      "slug": "graphql-excessive-exposure",
+      "category": "api",
+      "title": "GraphQL Excessive Data Exposure",
+      "demoApp": "SecureCorp API (GraphQL)",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/graphql-excessive-exposure"
+        }
+      ],
+      "primaryRoute": "/vuln/graphql-excessive-exposure",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-api.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "websocket-no-auth",
+      "slug": "websocket-no-auth",
+      "category": "api",
+      "title": "Missing WebSocket Authentication/Authorization",
+      "demoApp": "SecureCorp Live Notifications",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/websocket-no-auth"
+        }
+      ],
+      "primaryRoute": "/vuln/websocket-no-auth",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-api.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "websocket-chat-hijack",
+      "slug": "websocket-chat-hijack",
+      "category": "api",
+      "title": "Cross-Room Access in Live Chat (WebSocket)",
+      "demoApp": "SecureCorp Live Support Chat",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/websocket-chat-hijack"
+        }
+      ],
+      "primaryRoute": "/vuln/websocket-chat-hijack",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-api.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "websocket-origin-validation",
+      "slug": "websocket-origin-validation",
+      "category": "api",
+      "title": "Cross-Site WebSocket Hijacking (CSWSH)",
+      "demoApp": "SecureCorp Wire Transfer Terminal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "POST",
+          "path": "/vuln/websocket-origin-validation/probe"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/websocket-origin-validation"
+        }
+      ],
+      "primaryRoute": "/vuln/websocket-origin-validation",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-api.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "api-mass-assignment",
+      "slug": "api-mass-assignment",
+      "category": "api",
+      "title": "Mass Assignment",
+      "demoApp": "SecureCorp Account API",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/api-mass-assignment"
+        },
+        {
+          "method": "PATCH",
+          "path": "/vuln/api-mass-assignment/profile"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/api-mass-assignment/import"
+        }
+      ],
+      "primaryRoute": "/vuln/api-mass-assignment",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-api.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "price-tampering",
+      "slug": "price-tampering",
+      "category": "business-logic",
+      "title": "Price & Quantity Tampering",
+      "demoApp": "SecureCorp Store — Checkout",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/price-tampering"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/price-tampering/checkout"
+        }
+      ],
+      "primaryRoute": "/vuln/price-tampering",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-business.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "coupon-abuse",
+      "slug": "coupon-abuse",
+      "category": "business-logic",
+      "title": "Coupon & Discount Abuse",
+      "demoApp": "SecureCorp Store — Apply Coupon",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/coupon-abuse"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/coupon-abuse/apply"
+        }
+      ],
+      "primaryRoute": "/vuln/coupon-abuse",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-business.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "workflow-bypass",
+      "slug": "workflow-bypass",
+      "category": "business-logic",
+      "title": "Multi-Step Workflow Bypass",
+      "demoApp": "SecureCorp Store — Multi-Step Checkout",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/workflow-bypass"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/workflow-bypass/get-payment-token"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/workflow-bypass/set-cart"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/workflow-bypass/pay"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/workflow-bypass/confirm"
+        }
+      ],
+      "primaryRoute": "/vuln/workflow-bypass",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-business.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "refund-abuse",
+      "slug": "refund-abuse",
+      "category": "business-logic",
+      "title": "Refund Abuse",
+      "demoApp": "SecureCorp Store — Refunds",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/refund-abuse"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/refund-abuse/refund"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/refund-abuse/partial-refund"
+        }
+      ],
+      "primaryRoute": "/vuln/refund-abuse",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-business.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "invitation-abuse",
+      "slug": "invitation-abuse",
+      "category": "business-logic",
+      "title": "Referral / Invitation Abuse",
+      "demoApp": "SecureCorp Referral Program",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/invitation-abuse"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/invitation-abuse/redeem"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/invitation-abuse/bulk-invite"
+        }
+      ],
+      "primaryRoute": "/vuln/invitation-abuse",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-business.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "account-linking-abuse",
+      "slug": "account-linking-abuse",
+      "category": "business-logic",
+      "title": "Account Linking Abuse",
+      "demoApp": "SecureCorp — Link a Payment Account",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/account-linking-abuse"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/account-linking-abuse/support-log"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/account-linking-abuse/link"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/account-linking-abuse/link-via-support"
+        }
+      ],
+      "primaryRoute": "/vuln/account-linking-abuse",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-business.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "chain-support-takeover",
+      "slug": "chain-support-takeover",
+      "category": "chains",
+      "title": "Support Portal Takeover",
+      "demoApp": "SecureCorp Support Portal",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/chain-support-takeover"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/chain-support-takeover/backup/config.js.bak"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/chain-support-takeover/backup/support-portal.js.bak"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/chain-support-takeover/.git-config"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/chain-support-takeover/login"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/chain-support-takeover/tickets/:ref"
+        }
+      ],
+      "primaryRoute": "/vuln/chain-support-takeover",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-chains.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "chain-internal-pivot",
+      "slug": "chain-internal-pivot",
+      "category": "chains",
+      "title": "Internal Network Pivot",
+      "demoApp": "SecureCorp Chat — Link Preview",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/chain-internal-pivot"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/chain-internal-pivot/preview"
+        },
+        {
+          "method": "GET",
+          "path": "/vuln/chain-internal-pivot/admin-api/flag"
+        }
+      ],
+      "primaryRoute": "/vuln/chain-internal-pivot",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-chains.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    },
+    {
+      "id": "chain-xss-to-admin-action",
+      "slug": "chain-xss-to-admin-action",
+      "category": "chains",
+      "title": "Stored XSS to Admin Wire Approval",
+      "demoApp": "SecureCorp Support — New Ticket",
+      "difficulties": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/vuln/chain-xss-to-admin-action"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/chain-xss-to-admin-action/submit"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/chain-xss-to-admin-action/simulate-admin-review"
+        },
+        {
+          "method": "POST",
+          "path": "/vuln/chain-xss-to-admin-action/admin-approve"
+        }
+      ],
+      "primaryRoute": "/vuln/chain-xss-to-admin-action",
+      "primaryMethod": "GET",
+      "routeFile": "vulns-chains.js",
+      "hasWorkingRoute": true,
+      "status": "preserved"
+    }
+  ]
+}

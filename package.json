@@ -1,0 +1,21 @@
+{
+  "name": "faultline-labs",
+  "version": "3.0.0",
+  "description": "Faultline — a config-driven, sandboxed web security training lab with multi-variant vulnerability categories.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tests/run-all.js",
+    "validate": "node tools/validate-labs.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "graphql": "^17.0.2",
+    "multer": "^2.2.0",
+    "sql.js": "^1.14.1",
+    "ws": "^8.21.3"
+  }
+}
